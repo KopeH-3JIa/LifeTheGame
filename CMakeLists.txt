@@ -1,0 +1,14 @@
+project(LifeTheGame)
+cmake_minimum_required(VERSION 2.8)
+
+set(SOURCES main.cpp)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+INCLUDE(FindPkgConfig)
+
+PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
+INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL2_LIBRARIES})
